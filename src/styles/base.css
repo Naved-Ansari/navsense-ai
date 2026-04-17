@@ -1,0 +1,310 @@
+/* ============================================
+   NavSense AI — Base Styles & Animations
+   ============================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-primary);
+}
+
+/* ── Selection ── */
+::selection {
+    background: rgba(var(--brand-primary-rgb), 0.3);
+    color: var(--text-primary);
+}
+
+/* ── Typography Helpers ── */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    color: var(--text-primary);
+}
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+h5 { font-size: var(--text-base); }
+
+a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+a:hover { color: var(--brand-secondary); }
+
+p { color: var(--text-secondary); }
+
+/* ── Utilities ── */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-primary);
+}
+
+.glass-heavy {
+    background: var(--bg-glass-heavy);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-secondary);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ── Keyframe Animations ── */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes pulseScale {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(var(--brand-primary-rgb), 0.3); }
+    50% { box-shadow: 0 0 20px rgba(var(--brand-primary-rgb), 0.6); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 0.5; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes dotPulse {
+    0%, 80%, 100% { transform: scale(0); opacity: 0; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes splashLoad {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes ringPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ── Splash Screen ── */
+.splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-splash);
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.splash-content {
+    text-align: center;
+    animation: fadeInScale 0.8s ease;
+}
+.splash-logo {
+    margin-bottom: var(--space-6);
+}
+.splash-icon-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid rgba(var(--brand-primary-rgb), 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ringPulse 2s infinite ease-in-out;
+    position: relative;
+}
+.splash-icon-ring::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--brand-secondary-rgb), 0.15);
+    animation: ringPulse 2s infinite ease-in-out 0.5s;
+}
+.splash-icon {
+    width: 60px;
+    height: 60px;
+}
+.splash-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+.splash-ai {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.splash-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-top: var(--space-1);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: var(--font-medium);
+}
+.splash-loader {
+    width: 180px;
+    height: 3px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-full);
+    margin: var(--space-8) auto 0;
+    overflow: hidden;
+}
+.splash-loader-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    animation: splashLoad 2s ease-in-out forwards;
+}
+
+/* ── View Transition ── */
+.view-enter {
+    animation: fadeInUp 0.35s ease forwards;
+}
+.view-exit {
+    animation: fadeIn 0.2s ease reverse forwards;
+}

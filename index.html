@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="NavSense AI — Smart stadium assistant for real-time navigation, crowd management, and personalized event experiences.">
+    <meta name="theme-color" content="#0a0e1a">
+    <title>NavSense AI — Smart Stadium Assistant</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles/variables.css">
+    <link rel="stylesheet" href="src/styles/base.css">
+    <link rel="stylesheet" href="src/styles/components.css">
+    <link rel="stylesheet" href="src/styles/layout.css">
+    <link rel="stylesheet" href="src/styles/stadium-map.css">
+    <link rel="stylesheet" href="src/styles/views.css">
+    <link rel="stylesheet" href="src/styles/admin.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <div class="splash-icon-ring">
+                    <svg viewBox="0 0 100 100" class="splash-icon">
+                        <defs>
+                            <linearGradient id="splash-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff" />
+                                <stop offset="50%" style="stop-color:#7c3aed" />
+                                <stop offset="100%" style="stop-color:#00d4ff" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="url(#splash-grad)" stroke-width="2" opacity="0.3"/>
+                        <path d="M50 20 L50 50 L70 35" fill="none" stroke="url(#splash-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="50" cy="50" r="4" fill="url(#splash-grad)"/>
+                        <circle cx="30" cy="65" r="3" fill="#00d4ff" opacity="0.6"/>
+                        <circle cx="70" cy="60" r="2.5" fill="#7c3aed" opacity="0.6"/>
+                        <circle cx="40" cy="35" r="2" fill="#10b981" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="splash-title">NavSense <span class="splash-ai">AI</span></h1>
+            <p class="splash-subtitle">Smart Stadium Assistant</p>
+            <div class="splash-loader">
+                <div class="splash-loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Shell -->
+    <div id="app" class="app-shell" style="display:none;">
+        <!-- Top Navbar -->
+        <header id="navbar" class="navbar"></header>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content"></main>
+
+        <!-- Bottom Tab Bar (Attendee) -->
+        <nav id="tab-bar" class="tab-bar"></nav>
+
+        <!-- Admin Sidebar (hidden by default) -->
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+        <!-- Toast Container -->
+        <div id="toast-container" class="toast-container"></div>
+
+        <!-- Modal Container -->
+        <div id="modal-overlay" class="modal-overlay"></div>
+    </div>
+
+    <!-- Scripts (modules) -->
+    <script src="src/engine/dataStore.js"></script>
+    <script src="src/engine/crowdSimulator.js"></script>
+    <script src="src/engine/queueSimulator.js"></script>
+    <script src="src/engine/eventTimeline.js"></script>
+    <script src="src/engine/userContext.js"></script>
+    <script src="src/ai/contextEngine.js"></script>
+    <script src="src/ai/recommender.js"></script>
+    <script src="src/ai/notificationEngine.js"></script>
+    <script src="src/components/navbar.js"></script>
+    <script src="src/components/tabBar.js"></script>
+    <script src="src/components/sidebar.js"></script>
+    <script src="src/components/card.js"></script>
+    <script src="src/components/toast.js"></script>
+    <script src="src/components/modal.js"></script>
+    <script src="src/components/badge.js"></script>
+    <script src="src/components/stadiumMap.js"></script>
+    <script src="src/components/simulationControls.js"></script>
+    <script src="src/views/home.js"></script>
+    <script src="src/views/navigate.js"></script>
+    <script src="src/views/queues.js"></script>
+    <script src="src/views/assistant.js"></script>
+    <script src="src/views/notifications.js"></script>
+    <script src="src/views/profile.js"></script>
+    <script src="src/views/admin/overview.js"></script>
+    <script src="src/views/admin/analytics.js"></script>
+    <script src="src/views/admin/bottlenecks.js"></script>
+    <script src="src/views/admin/resources.js"></script>
+    <script src="src/views/admin/emergency.js"></script>
+    <script src="src/router.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
